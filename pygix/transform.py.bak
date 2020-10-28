@@ -20,7 +20,7 @@
 """
 Main module of pygix that users will interact with.
 """
-
+from __future__ import absolute_import, print_function, division
 
 __authors__ = ["Thomas Dane", "Jérôme Kieffer"]
 __license__ = "GPLv3+"
@@ -1922,7 +1922,7 @@ class Transform(GrazingGeometry):
         method : str 
             Method used to compute the dark. Can be "mean" or "median".
         """
-        if type(files) in (str,):
+        if type(files) in types.StringTypes:
             files = [i.strip() for i in files.split(",")]
         elif not files:
             files = []
@@ -1950,7 +1950,7 @@ class Transform(GrazingGeometry):
         method : str 
             Method used to compute the flat. Can be "mean" or "median".
         """
-        if type(files) in (str,):
+        if type(files) in types.StringTypes:
             files = [i.strip() for i in files.split(",")]
         elif not files:
             files = []

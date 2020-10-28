@@ -104,7 +104,7 @@ class Writer(object):
             header_dict = self._hdr_dict
 
         hdr_list = []
-        for k, v in list(header_dict.items()):
+        for k, v in header_dict.items():
             if (v.__class__ is str) and (len(v) is 0):
                 hdr_list.append(k)
             else:
@@ -212,7 +212,7 @@ class Writer(object):
                                 header={"EDF_DataBlockID": "1.Image.Error"})
             img.write(filename)
         except IOError:
-            print("IOError while writing %s" % filename)
+            print "IOError while writing %s" % filename
 
 
 def make_roi_header(**param):
@@ -227,10 +227,10 @@ def make_roi_header(**param):
         hdr_list (string): header data.
     """
     hdr_list = ['== Integration ROI ==']
-    method = [i for i in list(param.keys()) if "pos" in i][0].split('_pos')[0]
+    method = [i for i in param.keys() if "pos" in i][0].split('_pos')[0]
     hdr_list.append('Integration method: {}'.format(method))
 
-    for k, v in list(param.items()):
+    for k, v in param.items():
         hdr_list.append('{}: {}'.format(k, v))
 
     header = "\n".join(['# ' + i for i in hdr_list])
